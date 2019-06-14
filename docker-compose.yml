@@ -1,0 +1,11 @@
+version: "2"
+services:
+    app:
+        container_name: paqman
+        restart: always
+        build: .
+        command: /bin/sh -c "npm install && npm install -g nodemon && nodemon ./bin/www"
+        volumes:
+            - .:/app
+        ports:
+            - "127.0.0.1:4242:4242"
