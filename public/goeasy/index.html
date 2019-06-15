@@ -7,13 +7,10 @@
         <meta name="description" content="Go Easy Tracker.  Works offline." />
         <meta name="viewport" content="width=device-width, initial-scale=1.2" />
         <link rel="stylesheet" href="styles/main.css" />
-        <!--
-        <link rel="stylesheet" href="styles/pure-release-1.0.0/pure-min.css" />
-        -->
         <script src="scripts/goeasy.js"></script>
         <script src="scripts/jquery-3.4.1.min.js"></script>
     </head>
-    <body onload="restoreUnits(); restoreCustoms();">
+    <body onload="restoreUnits(); restoreDrinkParams(); restoreCustoms();">
         <div id="container">
             <style>
                 .button-secondary {
@@ -60,90 +57,145 @@
                         <tr>
                             <td class="c1"></td>
                             <td class="c2">
-                                Nouvelle semaine
+                                <span class="details"> En début de semaine,<br />on repart! </span>
                             </td>
                             <td class="c3">
                                 <button
                                     type="submit"
-                                    class="button-xsmall pure-button button-secondary"
+                                    class="button-xsmall button-secondary"
                                     onclick="resetUnits();"
                                 >
-                                    Go!
+                                    R&eacute;init.
                                 </button>
                             </td>
                         </tr>
                         <tr>
                             <td class="c1"></td>
                             <td class="c2">
-                                <span class="details">40% x 25ml = 1 un.</span>
+                                <!-- <span class="details">40% x 25ml = 1 un.</span> -->
+                                <table align="right">
+                                    <tr>
+                                        <td> <input type="text" placeholder="%" id="ScotchStrength" size="3" class="tightInput" /> % </td>
+                                        <td> <input type="text" placeholder="ml" id="ScotchVolume" size="3" class="tightInput" /> ml </td>
+                                        <td> <input type="text" placeholder="Unit&eacute;s" readonly id="ScotchUnits" size="3" class="tightInput" /> un. </td>
+                                    </tr>
+                                </table>
                             </td>
                             <td class="c3">
                                 <button
                                     type="submit"
-                                    class="button-scotch pure-button"
-                                    onclick="takeUnits(1, 'scotch')"
+                                    class="button-scotch"
+                                    onclick="takeUnits('Scotch')"
+                                    title="Petit verre de Scotch (verre à shooter)"
                                 >
-                                    Scotch<br />(single)
+                                    Scotch
                                 </button>
                             </td>
                         </tr>
                         <tr>
                             <td class="c1"></td>
                             <td class="c2">
-                                <span class="details">12% x 125ml = 1.5 un.</span>
+                                <!-- <span class="details">12% x 125ml = 1.5 un.</span> -->
+                                <table align="right">
+                                    <tr>
+                                        <td> <input type="text" placeholder="%" id="WineByVolumeStrength" size="3" class="tightInput" /> % </td>
+                                        <td> <input type="text" placeholder="ml" id="WineByVolumeVolume" size="3" class="tightInput" /> ml </td>
+                                        <td> <input type="text" placeholder="Unit&eacute;s" readonly id="WineByVolumeUnits" size="3" class="tightInput" /> un. </td>
+                                    </tr>
+                                </table>
                             </td>
                             <td class="c3">
                                 <button
                                     type="submit"
-                                    class="button-wine pure-button"
-                                    onclick="takeUnits(1.5, 'wine')"
+                                    class="button-wine"
+                                    onclick="takeUnits('WineByVolume')"
+                                    title="Verre de 1/8 de litre"
                                 >
-                                    Wine<br />(small)
+                                    Vin<br />(ml)
                                 </button>
                             </td>
                         </tr>
                         <tr>
                             <td class="c1"></td>
                             <td class="c2">
-                                <span class="details">12% x 175ml = 2.1 un.</span>
+                                <!-- <span class="details">12% x 175ml = 2.1 un.</span> -->
+                                <table align="right">
+                                    <tr>
+                                        <td> <input type="text" placeholder="%" id="WineGlassStrength" size="3" class="tightInput" /> % </td>
+                                        <td> <input type="text" placeholder="ml" id="WineGlassVolume" size="3" class="tightInput" /> ml </td>
+                                        <td> <input type="text" placeholder="Unit&eacute;s" readonly id="WineGlassUnits" size="3" class="tightInput" /> un. </td>
+                                    </tr>
+                                </table>
                             </td>
                             <td class="c3">
                                 <button
                                     type="submit"
-                                    class="button-wine pure-button"
-                                    onclick="takeUnits(2.1, 'wine')"
+                                    class="button-wine"
+                                    onclick="takeUnits('WineGlass')"
+                                    title="Verre de vin de grandeur normale"
                                 >
-                                    Wine<br />(normal)
+                                    Vin<br />(verre)
                                 </button>
                             </td>
                         </tr>
                         <tr>
                             <td class="c1"></td>
                             <td class="c2">
-                                <span class="details">5% x 330ml = 1.6 un.</span>
+                                <!-- <span class="details">5% x 330ml = 1.6 un.</span> -->
+                                <table align="right">
+                                    <tr>
+                                        <td> <input type="text" placeholder="%" id="BeerBottleStrength" size="3" class="tightInput" /> % </td>
+                                        <td> <input type="text" placeholder="ml" id="BeerBottleVolume" size="3" class="tightInput" /> ml </td>
+                                        <td> <input type="text" placeholder="Unit&eacute;s" readonly id="BeerBottleUnits" size="3" class="tightInput" /> un. </td>
+                                    </tr>
+                                </table>
                             </td>
-                            <td class="c3">
-                                <button
-                                    type="submit"
-                                    class="pure-button button-beer"
-                                    onclick="takeUnits(1.6, 'beer')"
-                                >
-                                    Beer<br />(bottle)
-                                </button>
                             </td>
+                            <td class="c3"> <button type="submit" class="button-beer" onclick="takeUnits('BeerBottle')" > Bi&egrave;re<br />(bouteille) </button> </td>
                         </tr>
                         <tr>
                             <td class="c1"></td>
+                            <td class="c2"> 
+                                <!-- <span class="details">5% x .5L = 2.5 un.</span> </td> -->
+                                <table align="right">
+                                    <tr>
+                                        <td> <input type="text" placeholder="%" id="BeerPintStrength" size="3" class="tightInput" /> % </td>
+                                        <td> <input type="text" placeholder="ml" id="BeerPintVolume" size="3" class="tightInput" /> ml </td>
+                                        <td> <input type="text" placeholder="Unit&eacute;s" readonly id="BeerPintUnits" size="3" class="tightInput" /> un. </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="c3"> <button type="submit" class="button-beer" onclick="takeUnits('BeerPint')" > Bi&egrave;re<br />(pinte) </button> 
+                        </tr>
+
+                        <tr>
+                            <td class="c1"></td>
+                            <!--
+                            <td class="c2"> <table align="right"> <tr> <td> <input type="text" placeholder="%" id="inStrength" size="3" class="tightInput" /> </td> <td> <input type="text" placeholder="ml" id="inVolume" size="3" class="tightInput" /> </td> <td> <input type="text" placeholder="ml" id="customUnits" size="3" class="tightInput" readonly /> </td> </tr> </table> </td>
+                            -->
                             <td class="c2">
-                                <span class="details">5% x .5L = 2.5 un.</span>
+                                <table align="right">
+                                    <tr>
+                                        <td> <input type="text" placeholder="%" id="CustomStrength" size="3" class="tightInput" /> % </td>
+                                        <td> <input type="text" placeholder="ml" id="CustomVolume" size="3" class="tightInput" /> ml </td>
+                                        <td> <input type="text" placeholder="Unit&eacute;s" readonly id="CustomUnits" size="3" class="tightInput" /> un. </td>
+                                    </tr>
+                                </table>
                             </td>
                             <td class="c3">
+                                <input
+                                    type="text"
+                                    placeholder="Custom"
+                                    id="CustomName"
+                                    class="tightInput"
+                                    size="6"
+                                />
                                 <button
                                     type="submit"
-                                    class="pure-button button-beer"
-                                    onclick="takeUnits(2.5, 'beer')"
+                                    class="addButton"
+                                    onclick="takeUnits('Custom')"
                                 >
-                                    Beer<br />(pint)
+                                    +
                                 </button>
                             </td>
                         </tr>
@@ -151,62 +203,13 @@
                         <tr>
                             <td class="c1"></td>
                             <td class="c2">
-                                <table align="right">
-                                    <tr>
-                                        <td>
-                                            <input
-                                                type="text"
-                                                placeholder="%"
-                                                id="inStrength"
-                                                size="3"
-                                                class="tightInput"
-                                            />
-                                            %
-                                        </td>
-                                        <td>
-                                            <input
-                                                type="text"
-                                                placeholder="ml"
-                                                id="inVolume"
-                                                size="3"
-                                                class="tightInput"
-                                            />
-                                            ml
-                                        </td>
-                                        <td>
-                                            <input
-                                                type="text"
-                                                placeholder="Units"
-                                                readonly
-                                                id="customUnits"
-                                                size="3"
-                                                class="tightInput"
-                                            />
-                                            un.
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td class="c3">
-                                <button
-                                    type="submit"
-                                    class="pure-button button-ltbeer"
-                                    onclick="takeUnits(getCustomUnits(), 'drink')"
-                                >
-                                    Other
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="c1"></td>
-                            <td class="c2">
-                                Units Left
+                                Unit&eacute;s Restantes
                             </td>
                             <td class="c3">
                                 <input
                                     type="text"
                                     class="pure-input-rounded"
-                                    placeholder="Units"
+                                    placeholder="0"
                                     id="unitsLeft"
                                     size="5"
                                     readonly
@@ -222,16 +225,16 @@
                     <td>
                         &nbsp;
                         <small>
-                            <a href="#" onclick="showLog()">Drink log</a><br />
-                            Ref.:
+                            <a href="#" onclick="showLog()">Journal</a><br />
+                            R&eacute;f.:
                             <a
                                 href="https://www.nhs.uk/live-well/alcohol-support/calculating-alcohol-units/"
                                 target="ref"
-                                >Alcohol Units</a
-                            >
+                                >Unit&eacute;s d'alcool
+                            </a>
                             |
                             <a href="https://www.bbc.com/news/uk-35255384" target="ref"
-                                >Recommended Limits.</a
+                                >Limite recommand&eacute;e</a
                             >
                         </small>
                         &nbsp;
@@ -253,11 +256,16 @@
                 restoreCustoms();
             });
         }
+        /*
         $("#inStrength").blur(function() {
             getCustomUnits();
         });
         $("#inVolume").blur(function() {
             getCustomUnits();
+        });
+        */
+        $(".tightInput").blur(function() {
+            saveDrinkParams();
         });
     </script>
 </html>
