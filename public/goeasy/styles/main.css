@@ -1,17 +1,21 @@
 body {
     margin: 0;
-    /* background-color: #2196F3 */
     background-color: white;
 }
+
+/*
 * {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
+
 main {
     padding: 20px;
 }
+*/
+
 html,
 body {
     height: 100%;
@@ -34,6 +38,7 @@ body {
     -ms-flex-pack: center;
     justify-content: center;
     flex-direction: column;
+    background: #eee;
 }
 
 .header,
@@ -56,6 +61,7 @@ h2 {
     height: 55px;
     vertical-align: middle;
 }
+
 .c2 {
     width: 200px;
     padding-left: 1px;
@@ -65,6 +71,17 @@ h2 {
     text-align: right;
     vertical-align: middle;
 }
+
+.c2x3 {
+    width: 66px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding: 1px;
+    height: 55px;
+    text-align: right;
+    vertical-align: middle;
+}
+
 .c3 {
     width: 120px;
     padding-left: 1px;
@@ -80,13 +97,18 @@ h2 {
     text-align: center;
 }
 
+/*
 #customUnits,
 #inStrength,
-#inVolume {
+#inVolume, 
+*/
+.tightInput {
     padding: 1px;
     padding-left: 1px;
     padding-right: 1px;
     text-indent: 2px;
+    height: 30px;
+    font-size: 18px;
 }
 
 .details {
@@ -102,8 +124,55 @@ button {
 
 input {
     background-color: #eee;
+    font-size: 18px;
 }
 
 input[readonly] {
     background-color: #ccc;
+    font-size: 18px;
+}
+
+.bigInput {
+    font-size: 18px;
+    width: 70px;
+}
+
+.addButton {
+    background: #d09000;
+    width: 40px;
+    margin-top: 0px;
+}
+
+/*
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    width: 100px;
+    margin-top: 0px;
+}
+.button-scotch {
+    color: white;
+    background: #d09000;
+    width: 100px;
+    margin-top: 0px;
+}
+.button-beer {
+    background: #d0a000;
+    width: 100px;
+    margin-top: 0px;
+}
+.button-ltbeer {
+    background: #ffbe00;
+    width: 100px;
+}
+.button-wine {
+    color: white;
+    background: #922f37;
+    width: 100px;
+}
+*/
+.button-secondary {
+    background: rgb(66, 184, 221);
+    width: 100px;
 }

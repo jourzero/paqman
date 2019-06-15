@@ -10,8 +10,6 @@ self.addEventListener("install", e => {
                     `index.html`,
                     `sw.js`,
                     `styles/main.css`,
-                    `styles/pure-release-1.0.0/pure-min.css`,
-                    `styles/pure-release-1.0.0/grids-responsive-min.css`,
                     `scripts/goeasy.js`,
                     `scripts/jquery-3.4.1.min.js`
                 ])
