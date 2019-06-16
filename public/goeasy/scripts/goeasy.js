@@ -11,7 +11,7 @@ let defaults = [
     [3.5, 341, "Custom"]
 ];
 
-// Reset drinking units and log every week
+// Reset drinking units to weekly allowance and reset the drink log
 function resetUnits() {
     let unitsLeft = weeklyUnits;
 
@@ -26,7 +26,7 @@ function resetUnits() {
     return unitsLeft;
 }
 
-// Restore tweaked strength/volume drink values from local storage and update UI
+// Restore tweaked strength/volume drink values and update UI
 function restoreDrinkParams() {
     for (let i = 0; i < defaults.length; i++) {
         // Get default values
@@ -53,6 +53,7 @@ function restoreDrinkParams() {
         $("#" + defaultName + "Name").val(name);
         $("#" + defaultName + "Units").val(units);
     }
+    // Save drink parameters in case they weren't saved before and we took the defaults
     saveDrinkParams();
 }
 
@@ -84,7 +85,7 @@ function takeUnits(drinkType) {
     unitsLeft = Number(unitsLeft).toFixed(1);
     $("#unitsLeft").val(unitsLeft);
     localStorage.setItem("unitsLeft", unitsLeft);
-    saveCustoms();
+    saveDrinkParams();
     logger(unitsTaken + " " + drinkType + " un. (" + unitsLeft + ")");
     return unitsLeft;
 }
@@ -95,23 +96,12 @@ function restoreUnits() {
     return unitsLeft;
 }
 
-function saveCustoms() {
-    localStorage.setItem("CustomVolume", $("#CustomVolume").val());
-    localStorage.setItem("CustomStrength", $("#CustomStrength").val());
-}
-
-function restoreCustoms() {
-    $("#CustomVolume").val(localStorage.getItem("CustomVolume"));
-    $("#CustomStrength").val(localStorage.getItem("CustomStrength"));
-    $("#customUnits").val(getCustomUnits());
-}
-
 function getCustomUnits() {
     let customStrength = $("#CustomStrength").val();
     let customVolume = $("#CustomVolume").val();
     let customUnits = Number((customStrength * customVolume) / 1000).toFixed(1);
     $("#customUnits").val(customUnits);
-    saveCustoms();
+    saveDrinkParams();
     return customUnits;
 }
 
