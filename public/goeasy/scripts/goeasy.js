@@ -17,7 +17,7 @@ function resetUnits() {
 
     // Reset drink log
     localStorage.setItem("log", "");
-    logger("Reset");
+    logger("Reset (" + unitsLeft + ")");
 
     // Reset units left
     $("#unitsLeft").val(unitsLeft);
@@ -79,13 +79,13 @@ function saveDrinkParams() {
 
 function takeUnits(drinkType) {
     let unitsTaken = $("#" + drinkType + "Units").val();
-    logger(unitsTaken + " " + drinkType + " un.");
     let unitsLeft = $("#unitsLeft").val();
     unitsLeft -= unitsTaken;
     unitsLeft = Number(unitsLeft).toPrecision(2);
     $("#unitsLeft").val(unitsLeft);
     localStorage.setItem("unitsLeft", unitsLeft);
     saveCustoms();
+    logger(unitsTaken + " " + drinkType + " un. (" + unitsLeft + ")");
     return unitsLeft;
 }
 

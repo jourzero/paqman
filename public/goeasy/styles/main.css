@@ -23,8 +23,8 @@ body {
 
 #container {
     height: 100%;
-    max-height: 500px;
-    max-width: 350px;
+    max-height: 550px;
+    max-width: 500px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -54,7 +54,7 @@ h2 {
 }
 
 .c1 {
-    width: 10px;
+    width: 5px;
     padding-left: 1px;
     padding-right: 1px;
     padding: 1px;
@@ -63,17 +63,7 @@ h2 {
 }
 
 .c2 {
-    width: 200px;
-    padding-left: 1px;
-    padding-right: 1px;
-    padding: 1px;
-    height: 55px;
-    text-align: right;
-    vertical-align: middle;
-}
-
-.c2x3 {
-    width: 66px;
+    width: 400px;
     padding-left: 1px;
     padding-right: 1px;
     padding: 1px;
@@ -83,7 +73,7 @@ h2 {
 }
 
 .c3 {
-    width: 120px;
+    width: 150px;
     padding-left: 1px;
     padding-right: 1px;
     padding: 1px;
@@ -92,7 +82,7 @@ h2 {
 }
 
 .refs {
-    width: 80%;
+    width: 100%;
     background: #eee;
     text-align: center;
 }
@@ -109,6 +99,17 @@ h2 {
     text-indent: 2px;
     height: 30px;
     font-size: 18px;
+    max-width: 55px;
+}
+
+.CustomNameInput {
+    padding: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    text-indent: 2px;
+    height: 30px;
+    font-size: 18px;
+    max-width: 100px;
 }
 
 .details {
@@ -143,36 +144,31 @@ input[readonly] {
     margin-top: 0px;
 }
 
-/*
 .button-secondary {
     color: white;
     border-radius: 4px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    width: 100px;
+    width: 150px;
     margin-top: 0px;
+    background: rgb(66, 184, 221);
 }
 .button-scotch {
     color: white;
     background: #d09000;
-    width: 100px;
+    width: 150px;
     margin-top: 0px;
 }
 .button-beer {
     background: #d0a000;
-    width: 100px;
+    width: 150px;
     margin-top: 0px;
 }
 .button-ltbeer {
     background: #ffbe00;
-    width: 100px;
+    width: 150px;
 }
 .button-wine {
     color: white;
     background: #922f37;
-    width: 100px;
-}
-*/
-.button-secondary {
-    background: rgb(66, 184, 221);
-    width: 100px;
+    width: 150px;
 }

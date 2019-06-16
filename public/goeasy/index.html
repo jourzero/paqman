@@ -12,6 +12,7 @@
     </head>
     <body onload="restoreUnits(); restoreDrinkParams(); restoreCustoms();">
         <div id="container">
+            <!--
             <style>
                 .button-secondary {
                     color: white;
@@ -50,12 +51,13 @@
                     width: 100px;
                 }
             </style>
+            -->
             <br />
             <form class="pure-form">
                 <table>
                     <tbody>
                         <tr>
-                            <td class="c1"></td>
+                            <!-- <td class="c1"></td> -->
                             <td class="c2">
                                 <span class="details"> En début de semaine,<br />on repart! </span>
                             </td>
@@ -70,7 +72,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="c1"></td>
+                            <!-- <td class="c1"></td> -->
                             <td class="c2">
                                 <!-- <span class="details">40% x 25ml = 1 un.</span> -->
                                 <table align="right">
@@ -93,7 +95,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="c1"></td>
+                            <!-- <td class="c1"></td> -->
                             <td class="c2">
                                 <!-- <span class="details">12% x 125ml = 1.5 un.</span> -->
                                 <table align="right">
@@ -116,7 +118,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="c1"></td>
+                            <!-- <td class="c1"></td> -->
                             <td class="c2">
                                 <!-- <span class="details">12% x 175ml = 2.1 un.</span> -->
                                 <table align="right">
@@ -139,7 +141,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="c1"></td>
+                            <!-- <td class="c1"></td> -->
                             <td class="c2">
                                 <!-- <span class="details">5% x 330ml = 1.6 un.</span> -->
                                 <table align="right">
@@ -154,7 +156,7 @@
                             <td class="c3"> <button type="submit" class="button-beer" onclick="takeUnits('BeerBottle')" > Bi&egrave;re<br />(bouteille) </button> </td>
                         </tr>
                         <tr>
-                            <td class="c1"></td>
+                            <!-- <td class="c1"></td> -->
                             <td class="c2"> 
                                 <!-- <span class="details">5% x .5L = 2.5 un.</span> </td> -->
                                 <table align="right">
@@ -169,7 +171,7 @@
                         </tr>
 
                         <tr>
-                            <td class="c1"></td>
+                            <!-- <td class="c1"></td> -->
                             <!--
                             <td class="c2"> <table align="right"> <tr> <td> <input type="text" placeholder="%" id="inStrength" size="3" class="tightInput" /> </td> <td> <input type="text" placeholder="ml" id="inVolume" size="3" class="tightInput" /> </td> <td> <input type="text" placeholder="ml" id="customUnits" size="3" class="tightInput" readonly /> </td> </tr> </table> </td>
                             -->
@@ -187,8 +189,8 @@
                                     type="text"
                                     placeholder="Custom"
                                     id="CustomName"
-                                    class="tightInput"
-                                    size="6"
+                                    class="CustomNameInput"
+                                    size="12"
                                 />
                                 <button
                                     type="submit"
@@ -201,7 +203,7 @@
                         </tr>
 
                         <tr>
-                            <td class="c1"></td>
+                            <!-- <td class="c1"></td> -->
                             <td class="c2">
                                 Unit&eacute;s Restantes
                             </td>
