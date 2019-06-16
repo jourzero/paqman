@@ -45,7 +45,7 @@ function restoreDrinkParams() {
         if (!name) name = defaultName;
 
         // Calculate Units
-        let units = Number((strength * volume) / 1000).toPrecision(2);
+        let units = Number((strength * volume) / 1000).toFixed(1);
 
         // Update UI
         $("#" + defaultName + "Strength").val(strength);
@@ -67,7 +67,7 @@ function saveDrinkParams() {
         let name = $("#" + drink + "Name").val();
 
         // Calculate units and update UI
-        let units = Number((strength * volume) / 1000).toPrecision(2);
+        let units = Number((strength * volume) / 1000).toFixed(1);
         $("#" + drink + "Units").val(units);
 
         // Save values
@@ -81,7 +81,7 @@ function takeUnits(drinkType) {
     let unitsTaken = $("#" + drinkType + "Units").val();
     let unitsLeft = $("#unitsLeft").val();
     unitsLeft -= unitsTaken;
-    unitsLeft = Number(unitsLeft).toPrecision(2);
+    unitsLeft = Number(unitsLeft).toFixed(1);
     $("#unitsLeft").val(unitsLeft);
     localStorage.setItem("unitsLeft", unitsLeft);
     saveCustoms();
@@ -109,7 +109,7 @@ function restoreCustoms() {
 function getCustomUnits() {
     let customStrength = $("#CustomStrength").val();
     let customVolume = $("#CustomVolume").val();
-    let customUnits = Number((customStrength * customVolume) / 1000).toPrecision(2);
+    let customUnits = Number((customStrength * customVolume) / 1000).toFixed(1);
     $("#customUnits").val(customUnits);
     saveCustoms();
     return customUnits;
